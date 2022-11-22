@@ -47,3 +47,6 @@ Then, to listen to any calls made to `http://localhost:9000/`, we need to start 
 java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000 -timeout 15000
 </code></pre>
 
+
+## Contact
+The tool was developed by Xavier de Bondt (https://github.com/XavierdeBondt)
