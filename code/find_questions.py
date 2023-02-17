@@ -24,7 +24,7 @@ def dialog_act_questions(df):
     dialog_tagger = DialogTag('bert-base-uncased')
 
     # Whenever a dialogue acts contains "-Question" or is an "Or-Clause", we consider it to be a question.
-    dialogue_acts = ["-Question", "Or-Clause"]
+    dialog_acts = ["-Question", "Or-Clause"]
     for idx, row in df.iterrows():  
         # Find the speech acts for every speakerturn
         for sentence in tokenize.sent_tokenize(row["text"]):
