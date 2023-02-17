@@ -7,9 +7,9 @@ from pycorenlp import StanfordCoreNLP
 # This uses the preprocessed dataframes, created in the preprocessing.py document
 
 
-def speech_act_questions(df):
+def dialog_act_questions(df):
     """
-    This function find the questions, on basis of Speech Acts.
+    This function find the questions, on basis of Dialog Acts.
 
     :param df: A labeled dataframe of speakerturns, which has the following columns:
     ['identifier'] - The index of the speakerturn
@@ -23,14 +23,14 @@ def speech_act_questions(df):
     # Speech Act Classification Model
     dialog_tagger = DialogTag('bert-base-uncased')
 
-    # Whenever a speech acts contains "-Question" or is an "Or-Clause", we consider it to be a question.
-    speech_acts = ["-Question", "Or-Clause"]
+    # Whenever a dialogue acts contains "-Question" or is an "Or-Clause", we consider it to be a question.
+    dialogue_acts = ["-Question", "Or-Clause"]
     for idx, row in df.iterrows():  
         # Find the speech acts for every speakerturn
         for sentence in tokenize.sent_tokenize(row["text"]):
             tag = dialog_tagger.predict_tag(sentence)
-            # If it contains one of our speech act criteria, it is a question
-            if any(speech_act in tag for speech_act in speech_acts):
+            # If it contains one of our dialogue act criteria, it is a question
+            if any(dialog_act in tag for dialog_act in dialog_acts):
                 df.at[idx, 'question'] = 1
     
     return df

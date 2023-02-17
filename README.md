@@ -3,7 +3,7 @@
 This code found in the `code` folder can be used to extract requirements-relevant questions from a transcription of a requirements elicitation session (an interview). It consists of three parts, plus an example. 
 
 The first part (`preprocessing.py`) preprocesses our data, converting it to a format which can be used by the code. 
-After that, the code in `find_questions.py` can identify the questions using either Part of Speech tags or Speech Acts. 
+After that, the code in `find_questions.py` can identify the questions using either Part of Speech tags or Dialogue Acts. 
 Finally, the code in `categorize_relevance.py` will determine whether these questions are requirements relevant or not, using TF-IDF.
 These three Python files are orchestrated in the Jupyter notebook `example.ipynb`. 
 
